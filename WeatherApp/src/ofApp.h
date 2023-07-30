@@ -4,10 +4,13 @@
 
 #include "ofxGui.h"
 
+#include "ofxJSON.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void getData();
 		void update();
 		void draw();
 
@@ -23,6 +26,9 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+		ofxJSONElement json; // Stores Data From API
+		string testAPI;
+		
 		ofRectangle headerBar;
 
 		// All GUI Elements

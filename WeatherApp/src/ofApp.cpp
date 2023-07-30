@@ -2,34 +2,41 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	headerBar.set(0, 0, 1024, 100); 
+	headerBar.set(0, 0, 1920, 125); 
 
     // setup gui
     gui.setup();
 
-    gui.add(title.setup("Menu", "Search"));
-    gui.add(address.setup("Address"));
-    gui.add(address.setup("Coordinates"));
-    gui.add(toggleFullscreen.setup("Fullscreen?", false));
+	gui.add(title.setup("Menu", "Search")); // Adds GUI Box
+    gui.add(address.setup("Address", true));
+    gui.add(coordinates.setup("Coordinates", false));
+    gui.add(toggleFullscreen.setup("Fullscreen", false));
 
     // setup theme GUI
     themes.setup();
 
     themes.setPosition(220, 10);
 
-    theme1.setBackgroundColor(ofColor(195, 195, 195));
-    theme2.setBackgroundColor(ofColor(195, 195, 195));
+    theme1.setBackgroundColor(ofColor(0, 0, 0));
+    theme2.setBackgroundColor(ofColor(255, 255, 255));
    
 
     themes.add(themeTitle.setup("Menu", "Themes"));
     themes.add(theme1.setup("Light", true));
     themes.add(theme2.setup("Dark", false));
 
-    theme1.setTextColor(ofColor(0, 0, 0));
-    theme2.setTextColor(ofColor(255, 255, 255));
+    theme1.setTextColor(ofColor(255, 255, 255)); // Set Text Black
+	theme2.setTextColor(ofColor(0, 0, 0)); // Set Text White
     
 }
 
+void ofApp::getData() {
+
+    json.open("https://api.themoviedb.org/3/trending/movie/week?api_key=a8aa6d4c1e64b1b49221d14dc49d0bd7"); // Open JSON URl For Main Page Data
+    testAPI = json[0].asString();
+    
+	cout << testAPI << endl;
+}
 //--------------------------------------------------------------
 void ofApp::update(){
 
@@ -48,7 +55,9 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-
+    if (key == OF_KEY_F11) {
+		ofToggleFullscreen(); // Toggles Fullscreen
+    }
 }
 
 //--------------------------------------------------------------
