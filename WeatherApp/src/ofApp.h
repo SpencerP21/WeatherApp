@@ -30,11 +30,9 @@ class ofApp : public ofBaseApp{
 		ofxPanel themes;
 		
 		ofxToggle toggleFullscreen;
-		ofxLabel title;
-		ofxLabel themeTitle;
-		ofxButton address;
-		ofxButton coordinates;
-		ofxButton theme1;
-		ofxButton theme2;
+		ofxLabel title, themeTitle;
+		ofxButton address, coordinates;
+		ofxButton theme1; // Light Theme
+		ofxButton theme2; // Dark Theme
 		
 };
