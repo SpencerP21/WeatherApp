@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 
+#include "ofxGui.h"
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -22,5 +24,17 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		ofRectangle headerBar;
+
+		// All GUI Elements
+		ofxPanel gui;
+		ofxPanel themes;
+		
+		ofxToggle toggleFullscreen;
+		ofxLabel title;
+		ofxLabel themeTitle;
+		ofxButton address;
+		ofxButton coordinates;
+		ofxButton theme1;
+		ofxButton theme2;
 		
 };
