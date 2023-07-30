@@ -31,15 +31,20 @@ class ofApp : public ofBaseApp{
 		string testAPIUSA;
 		
 		ofRectangle headerBar;
+		
+		// Temperature Rectangles
+		ofRectangle tempRect;
+		ofRectangle tempRect2;
+		ofRectangle tempRect3;
+		ofRectangle tempRect4;
+		ofRectangle tempRect5;
 
 		// All GUI Elements
 		ofxPanel gui;
 		ofxPanel themes;
-		
-		ofxToggle toggleFullscreen;
+
 		ofxLabel title, themeTitle;
 		ofxButton address, coordinates;
 		ofxButton theme1; // Light Theme
 		ofxButton theme2; // Dark Theme
-		
 };

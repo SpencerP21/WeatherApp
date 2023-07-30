@@ -2,8 +2,14 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	headerBar.set(0, 0, 1920, 125); 
     getData();
+    
+	headerBar.set(0, 0, 1920, 125); 
+    
+	tempRect.set(20, 135, 482, 100);
+	tempRect2.set(522, 135, 482, 100);
+	
+    
 
     // setup gui
     gui.setup();
@@ -11,12 +17,11 @@ void ofApp::setup(){
 	gui.add(title.setup("Menu", "Search")); // Adds GUI Box
     gui.add(address.setup("Address", true));
     gui.add(coordinates.setup("Coordinates", false));
-    gui.add(toggleFullscreen.setup("Fullscreen", false));
 
     // setup theme GUI
     themes.setup();
 
-    themes.setPosition(220, 10);
+    themes.setPosition(800, 10);
 
     theme1.setBackgroundColor(ofColor(0, 0, 0));
     theme2.setBackgroundColor(ofColor(255, 255, 255));
@@ -48,6 +53,7 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    ofSetColor(255, 255, 255);
 	ofDrawRectangle(headerBar); // Draws Header Bar
 
     // draw gui   
@@ -56,7 +62,11 @@ void ofApp::draw(){
     // draw theme gui
     themes.draw();
 
-   // cout << testAPI << endl;
+	// draw temp rect
+    ofSetColor(180, 76, 12);
+	ofDrawRectangle(tempRect);
+	ofDrawRectangle(tempRect2);
+    
 }
 
 //--------------------------------------------------------------
