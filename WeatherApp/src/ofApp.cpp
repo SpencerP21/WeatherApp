@@ -3,6 +3,7 @@
 //--------------------------------------------------------------
 void ofApp::setup(){
 	headerBar.set(0, 0, 1920, 125); 
+    getData();
 
     // setup gui
     gui.setup();
@@ -32,8 +33,8 @@ void ofApp::setup(){
 
 void ofApp::getData() {
 
-    json.open("https://api.themoviedb.org/3/trending/movie/week?api_key=a8aa6d4c1e64b1b49221d14dc49d0bd7"); // Open JSON URl For Main Page Data
-    testAPI = json[0].asString();
+    json.open("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m"); // Open JSON URl For Main Page Data
+	testAPI = json["hourly"]["temperature_2m"][0].asString(); // Returns The First Hourly Temperature From The API (0:00 midnight)
     
 	cout << testAPI << endl;
 }
@@ -51,6 +52,8 @@ void ofApp::draw(){
 
     // draw theme gui
     themes.draw();
+
+   // cout << testAPI << endl;
 }
 
 //--------------------------------------------------------------
