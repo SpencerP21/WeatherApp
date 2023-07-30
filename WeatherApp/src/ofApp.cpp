@@ -35,8 +35,11 @@ void ofApp::getData() {
 
     json.open("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m"); // Open JSON URl For Main Page Data
 	testAPI = json["hourly"]["temperature_2m"][0].asString(); // Returns The First Hourly Temperature From The API (0:00 midnight)
+    testAPIUSA = json["hourly"]["temperature_2m"][0].asString();
+
     
-	cout << testAPI << endl;
+	cout << testAPI << endl; // Display Temp As Celsius
+	cout << ((stof(testAPIUSA) * 9 / 5) + 32) << " F" << endl; // Display Temp As Fareinheit
 }
 //--------------------------------------------------------------
 void ofApp::update(){

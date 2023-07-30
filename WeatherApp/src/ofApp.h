@@ -28,6 +28,7 @@ class ofApp : public ofBaseApp{
 
 		ofxJSONElement json; // Stores Data From API
 		string testAPI;
+		string testAPIUSA;
 		
 		ofRectangle headerBar;
 
